@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "99931793276",
+    "project_id": "tarea3-tiendavirtual",
+    "storage_bucket": "tarea3-tiendavirtual.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99931793276:android:b89465785274e278bb66f9",
+        "android_client_info": {
+          "package_name": "com.example.tiendavirtual"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcd98zfTh-2SQ1iGXzLKZLpoFZPkYIEC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99931793276:android:b7233fbe20d0ec71bb66f9",
+        "android_client_info": {
+          "package_name": "com.example.valeriarubiocarrasco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcd98zfTh-2SQ1iGXzLKZLpoFZPkYIEC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
