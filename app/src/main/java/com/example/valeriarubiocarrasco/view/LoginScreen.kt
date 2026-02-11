@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
@@ -30,6 +31,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.valeriarubiocarrasco.R
+import com.example.valeriarubiocarrasco.navigation.GestionNavegacion
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -57,30 +59,30 @@ fun LoginScreen(
                 painter = painterResource(R.drawable.logo),
                 contentDescription = "Imagen logo unicaja"
             )
-            Spacer(modifier = Modifier.width(25.dp))
+            Spacer(modifier = Modifier.height(25.dp))
 
             Text(text = "Inicia Sesión", fontSize = 25.sp)
 
-            Spacer(modifier = Modifier.width(25.dp))
+            Spacer(modifier = Modifier.height(25.dp))
 
             OutlinedTextField(
                 value = email,
                 onValueChange = {email = it},
                 label = {Text("Email")},
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth()
+                singleLine = true
+
 
             )
+            Spacer(modifier = Modifier.height(15.dp))
             OutlinedTextField(
                 value = password,
                 onValueChange = {password = it},
                 label ={ Text("Constraseña")},
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
                 visualTransformation = PasswordVisualTransformation()
 
         )
-
+            Spacer(modifier = Modifier.height(25.dp))
             Button(
                 onClick ={
                     auth.signInWithEmailAndPassword(email, password)

@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 fun GestionNavegacion(
     auth: FirebaseAuth
 ){
-    val pilaNavegacion: NavBackStack<NavKey> = rememberNavBackStack(Routes.LoginScreen)
+    val pilaNavegacion: NavBackStack<NavKey> = rememberNavBackStack(Routes.HomeScreen)
     val homeViewModel: HomeViewModel = viewModel()
 
     NavDisplay(
@@ -37,7 +37,6 @@ fun GestionNavegacion(
                 }
                 is Routes.HomeScreen -> NavEntry(key){
                     HomeScreen(
-                        auth = auth,
                         homeViewModel,
                         onClickAgregarJ = {
                             pilaNavegacion.add(Routes.NuevoJugadorScreen)
