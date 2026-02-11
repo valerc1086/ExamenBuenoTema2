@@ -22,6 +22,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         auth = Firebase.auth
+
         setContent {
             ValeriaRubioCarrascoTheme {
 
