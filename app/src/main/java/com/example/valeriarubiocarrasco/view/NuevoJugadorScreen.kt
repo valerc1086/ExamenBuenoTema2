@@ -9,27 +9,32 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.valeriarubiocarrasco.viewmodel.HomeViewModel
 
 @Composable
 fun NuevoJugadorScreen(
-    onAgregarJugador: () -> Unit,
+    viewModel: HomeViewModel = viewModel(),
     onCancelar: () -> Unit
 ){
     Column(
 
     ){
+        val jugadores by viewModel.jugador.collectAsState()
+
         var nombre by remember { mutableStateOf("") }
         var numero by remember{mutableStateOf("")}
         var posicion by remember{mutableStateOf("")}
         var nacionalidad by remember{mutableStateOf("")}
         var urlimagen by remember{mutableStateOf("")}
+
 
         Text("Nuevo jugador")
 
@@ -91,12 +96,27 @@ fun NuevoJugadorScreen(
 
         Row(){
             Button(
-                onClick = onAgregarJugador
+                onClick = {
+                    if(nombre.isNotBlank() && numero.isNotBlank() && posicion.isNotBlank()
+                        && nacionalidad.isNotBlank() && urlimagen.isNotBlank()) {
+                        val numeroInt = numero.toIntOrNull()
+                        if (numeroInt != null) {
+                            viewModel.addJugador(
+                                nombre,
+                                numeroInt,
+                                posicion,
+                                nacionalidad,
+                                urlimagen
+                            )
+                        }
+                    }
+                }
             ) {
                 Text("Agregar Jugador")
             }
             Button(
                 onClick = onCancelar
+
             ) {
                 Text("Cancelar")
             }
